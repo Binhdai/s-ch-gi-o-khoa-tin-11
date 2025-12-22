@@ -1,0 +1,7 @@
+{
+  "name": "Học Tốt Tin Học 11",
+  "description": "Ứng dụng hỗ trợ học tập môn Tin học 11 theo bộ sách Kết nối tri thức, tích hợp trợ lý ảo AI Gemini giúp giải đáp thắc mắc và ôn tập kiến thức trọng tâm.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
