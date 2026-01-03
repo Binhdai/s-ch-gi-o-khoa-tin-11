@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
   const isLessonLocked = (lessonId: string) => {
     const currentIndex = allLessons.findIndex(l => l.id === lessonId);
-    if (currentIndex === 0) return false;
+    if (currentIndex <= 0) return false;
     const prevLesson = allLessons[currentIndex - 1];
     return !progress.completedLessonIds.includes(prevLesson.id);
   };
@@ -63,7 +63,7 @@ const App: React.FC = () => {
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center text-slate-400 text-xs font-bold uppercase tracking-widest gap-2">
               <i className="fas fa-folder-open"></i>
-              <span>{currentChapter?.id.replace('-', ' ')}</span>
+              <span>{currentChapter?.title.split(':')[0]}</span>
               <i className="fas fa-chevron-right text-[8px]"></i>
             </div>
             <h2 className="font-bold text-slate-800 text-sm md:text-base truncate max-w-[200px] md:max-w-none">
@@ -194,7 +194,10 @@ const App: React.FC = () => {
                 <i className="fas fa-magic text-2xl mb-4"></i>
                 <h4 className="font-bold mb-2">Bạn bị kẹt?</h4>
                 <p className="text-xs text-indigo-100 mb-4 leading-relaxed">Hãy hỏi trợ lý AI ngay nếu bạn không hiểu bất kỳ phần nào của bài học này.</p>
-                <button className="w-full bg-white text-indigo-600 py-2 rounded-xl text-sm font-bold hover:bg-indigo-50 transition-colors">
+                <button 
+                  onClick={() => document.querySelector<HTMLButtonElement>('.fixed.bottom-6.right-6 > button')?.click()}
+                  className="w-full bg-white text-indigo-600 py-2 rounded-xl text-sm font-bold hover:bg-indigo-50 transition-colors"
+                >
                   Chat với Gemini
                 </button>
               </div>
